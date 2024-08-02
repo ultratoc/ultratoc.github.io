@@ -72,9 +72,9 @@ function postProcess() {
 }
 
 function startProcess() {
-  getName()
   video = document.getElementById("videoID").value
   url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
+  getName()
   document.getElementById("videoID").style.display = "none"
   document.getElementById("butt").style.display = "none"
   commentCrawl(null)
