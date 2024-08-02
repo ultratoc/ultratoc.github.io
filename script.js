@@ -33,7 +33,7 @@ var table = {
   "X" : "Sketchbook",
   "Y" : "Stackable Chairs",
   "AND" : "Tech Deck",
-  "A" : "Toliet Paper",
+  "Z" : "Toliet Paper",
   "3" : "Hedge"
 }
 
