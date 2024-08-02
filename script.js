@@ -6,6 +6,36 @@ var display = document.getElementById("display")
 var nameEL = document.getElementById("name")
 
 var comments = []
+var table = {
+  "A" : "10 Dollar Gift Card",
+  "B" : "Airplane Seat",
+  "C" : "Arcade Machine",
+  "D" : "Chezburger",
+  "E" : "Coconut Water",
+  "F" : "Confetti Canon",
+  "G" : "Coupony",
+  "H" : "Credit Card",
+  "I" : "Daisy",
+  "J" : "Dart Board",
+  "K" : "Edd",
+  "L" : "Fake Fake Fake Candle",
+  "M" : "Flexatone",
+  "N" : "Gleepus",
+  "O" : "Green Egg Toast",
+  "P" : "Handheld Air Raid Siren",
+  "Q" : "Honey In A Bear Shaped Jar",
+  "R" : "Mega's Prediction Layout",
+  "S" : "My Best Friend",
+  "T" : "Pan",
+  "U" : "Portable Tv",
+  "V" : "Rubber Band Ball",
+  "W" : "Shiny Charm",
+  "X" : "Sketchbook",
+  "Y" : "Stackable Chairs",
+  "AND" : "Tech Deck",
+  "A" : "Toliet Paper",
+  "3" : "Hedge"
+}
 
 function commentCrawl(token) {
   const xhr = new XMLHttpRequest();
@@ -72,6 +102,7 @@ function postProcess() {
   
   for (let key of Object.keys(counts)) {
     clean_key = key.replace('[', '').replace(']', '')
+    if (Object.keys(table).includes(clean_key)) clean_key = table[clean_key]
     displayText += clean_key + ": " + counts[key] + "\n"
   }
 
