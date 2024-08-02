@@ -66,7 +66,7 @@ function postProcess() {
   counts = Object.keys(counts)
     .sort((a, b) => counts[b] - counts[a])
     .reduce((acc, key) => {
-      acc[key] = dict[key];
+      acc[key] = counts[key];
       return acc;
     }, {});
   
