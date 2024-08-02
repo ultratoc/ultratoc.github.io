@@ -62,7 +62,14 @@ function postProcess() {
   }
 
   let displayText = ""
-
+  
+  counts = Object.keys(counts)
+    .sort((a, b) => counts[b] - counts[a])
+    .reduce((acc, key) => {
+      acc[key] = dict[key];
+      return acc;
+    }, {});
+  
   for (let key of Object.keys(counts)) {
     clean_key = key.replace('[', '').replace(']', '')
     displayText += clean_key + ": " + counts[key] + "\n"
