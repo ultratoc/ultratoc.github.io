@@ -95,7 +95,7 @@ function getName() {
       nameEL.innerText = "COUNTING FOR: \n" + data.items[0].snippet.localized.title
       console.log("goop")
     } else {
-      console.log(`Sad Error: ${xhr.status}`);
+      console.log(`Sad Error: ${xhr.status} ${xhr.response}`);
     }
   };
 }
