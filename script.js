@@ -1,4 +1,4 @@
-var gaf = 'AIzaSyBRWJwIp50Ll9VjTD5pAjt_6mlb_9UtZss'
+var gaf = 'AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8'
 var video = 'u_Wbj5wTvN0'
 var url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
 
