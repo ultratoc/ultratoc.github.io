@@ -118,9 +118,9 @@ function startProcess() {
   document.getElementById("butt").style.display = "none"
   commentCrawl(null)
 
-  setInterval(function() {
-    commentCrawl(null)
-  }, 5000)
+  //setInterval(function() {
+  //  commentCrawl(null)
+  //}, 5000)
 }
 
 function getName() {
