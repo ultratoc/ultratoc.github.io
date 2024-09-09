@@ -8,10 +8,10 @@ var nameEL = document.getElementById("name")
 
 var comments = []
 var table = {
-  "A" : "10 Dollar Gift Card",
-  "B" : "Airplane Seat",
-  "C" : "Arcade Machine",
-  "D" : "Chezburger",
+  "A" : "Purple Ghost",
+  "B" : "Fly Tape",
+  "C" : "1000° Iron Ball",
+  "D" : "Fake Fake Candle",
   "E" : "Coconut Water",
   "F" : "Confetti Canon",
   "G" : "Coupony",
