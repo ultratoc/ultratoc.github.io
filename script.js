@@ -7,7 +7,7 @@ var display = document.getElementById("display")
 var nameEL = document.getElementById("name")
 
 var comments = []
-var table = {
+/*var table = {
   "A" : "Purple Ghost",
   "B" : "Fly Tape",
   "C" : "1000° Iron Ball",
@@ -36,7 +36,11 @@ var table = {
   "AND" : "Tech Deck",
   "Z" : "Toliet Paper",
   "3" : "Hedge"
-}
+}*/
+var table = {
+  "A" : "1000° Iron Ball",
+  "B" : "Fly Tape"
+};
 
 function commentCrawl(token) {
   const xhr = new XMLHttpRequest();
