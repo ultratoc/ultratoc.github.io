@@ -11,16 +11,12 @@ var nameEL = document.getElementById("name")
 
 var comments = []
 var table = {
-  "A": "Cheese Plate",
-  "B": "Garlic Bread",
-  "C": "Banana Slice",
-  "D": "Ham And Cheese Crackers",
-  "E": "DVD",
-  "1": "Cheese Plate",
-  "2": "Garlic Bread",
-  "3": "Banana Slice",
-  "4": "Ham And Cheese Crackers",
-  "5": "DVD"
+  "A": "Cup of Rainbow",
+  "B": "Hanging Pot Plant",
+  "C": "Glass Pane",
+  "1": "Cup of Rainbow",
+  "2": "Hanging Pot Plant",
+  "3": "Glass Pane"
 }
 
 function commentCrawl(token) {
