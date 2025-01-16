@@ -2,7 +2,7 @@
 var gaf = 'AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8'
 var gafs = ['AIzaSyBnAa8ZvWoXucHYNn8J5LjKR5L-viCcnY8', 'AIzaSyBRWJwIp50Ll9VjTD5pAjt_6mlb_9UtZss'];
 var gc = 0;
-var video = 'oy9ghhZ0tFs'
+var video = 'c_RNiknOSCs'
 var url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
 
 var display = document.getElementById("display")
