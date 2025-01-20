@@ -1,22 +1,15 @@
 //var gaf = 'AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8'
-var gaf = 'AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8'
-var gafs = ['AIzaSyBnAa8ZvWoXucHYNn8J5LjKR5L-viCcnY8', 'AIzaSyBRWJwIp50Ll9VjTD5pAjt_6mlb_9UtZss'];
-var gc = 0;
-var video = 'c_RNiknOSCs'
+var gaf = 'AIzaSyBnAa8ZvWoXucHYNn8J5LjKR5L-viCcnY8'
+var video = 'u_Wbj5wTvN0'
 var url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
 
 var display = document.getElementById("display")
-var displayL = document.getElementById("displayL")
 var nameEL = document.getElementById("name")
 
 var comments = []
 var table = {
-  "A": "Cup of Rainbow",
-  "B": "Hanging Pot Plant",
-  "C": "Glass Pane",
-  "1": "Cup of Rainbow",
-  "2": "Hanging Pot Plant",
-  "3": "Glass Pane"
+  "A" : "1000° Iron Ball",
+  "B" : "Fly Tape"
 }
 
 function commentCrawl(token) {
@@ -36,9 +29,6 @@ function commentCrawl(token) {
 
     } else {
       console.log(`Sad Error: ${xhr.status}`);
-      gaf = gafs[gc];
-      g++;
-      commentCrawl(token);
     }
   };
 }
@@ -61,24 +51,10 @@ function postProcess() {
 
     raw = comment.snippet.topLevelComment.snippet.textOriginal.toUpperCase()
 
-    let votes_raw = [...raw.matchAll(new RegExp("\\[[a-zA-Z0-9]+\\]", 'gi'))]
-    let votes = [];
-    votes_raw.forEach((v) => votes.push(v[0]));
-    if (votes == undefined || votes.length > 2) {
-      continue
-    } else if (votes.length == 2) {
-      let nt1 = isNaN(parseInt(votes[0].replace('[', '').replace(']', '')));
-      let nt2 = isNaN(parseInt(votes[1].replace('[', '').replace(']', '')));
-      if ((nt1 || nt2) && !(nt1 && nt2)) {
-        for (let v of votes) {
-          if (!flags.includes(v)) {
-            flags.push(v);
-            counts[v] = 0
-          }
+    votes = [...raw.matchAll(new RegExp("\\[[a-zA-Z0-9]+\\]", 'gi'))][0]
 
-          counts[v]++
-        }
-      }
+    if (votes == undefined || votes.length > 1) {
+      continue
     }
     else {
       if (!flags.includes(votes[0])) {
@@ -91,34 +67,25 @@ function postProcess() {
   }
 
   let displayText = ""
-  let displayLikes = ""
-
+  
   counts = Object.keys(counts)
     .sort((a, b) => counts[b] - counts[a])
     .reduce((acc, key) => {
       acc[key] = counts[key];
       return acc;
     }, {});
-
+  
   for (let key of Object.keys(counts)) {
     clean_key = key.replace('[', '').replace(']', '')
-    if (Object.keys(table).includes(clean_key)) {
-      let entry = table[clean_key] + ": " + counts[key] + "\n"
-      if (isNaN(parseInt(clean_key))) {
-        displayText += entry
-      } else {
-        displayLikes += entry
-      }
-    }
-
+    if (Object.keys(table).includes(clean_key)) clean_key = table[clean_key]
+    displayText += clean_key + ": " + counts[key] + "\n"
   }
 
   display.innerText = displayText
-  displayL.innerText = displayLikes
 }
 
 function startProcess() {
-  //video = document.getElementById("videoID").value
+  video = document.getElementById("videoID").value
   url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
   getName()
   document.getElementById("videoID").style.display = "none"
@@ -142,10 +109,6 @@ function getName() {
       console.log("goop")
     } else {
       console.log(`Sad Error: ${xhr.status} ${xhr.response}`);
-      gaf = gafs[gc];
-      g++;
-      getName();
     }
   };
 }
-startProcess();
