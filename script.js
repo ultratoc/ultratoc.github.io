@@ -37,7 +37,7 @@ function commentCrawl(token) {
       } else {
          console.log(`Sad Error: ${xhr.status}`);
          gaf = gafs[gc];
-         g++;
+         gc++;
          commentCrawl(token);
       }
    };
