@@ -207,7 +207,7 @@ function getName() {
       } else {
          console.log(`Sad Error: ${xhr.status} ${xhr.response}`);
          gaf = gafs[gc];
-         g++;
+         gc++;
          getName();
       }
    };
