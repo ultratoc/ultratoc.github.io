@@ -4,7 +4,7 @@ var gc = 0;
 var video = 'LYPmesc9xt4';
 //var url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
 var video_uploaded = null;
-const MS_FUTURE = 1123200000;
+const MS_FUTURE = 1209600000;
 
 var display = document.getElementById("display")
 var nameEL = document.getElementById("name")
@@ -145,7 +145,7 @@ function postProcess() {
       for (let key of Object.keys(bins)) {
          bins[key][i] += bins[key][i - 1];
       }
-      bin_labels.push(`${Math.floor((i*per_bin) / 86400000)}`);
+      bin_labels.push(`${(i*per_bin) / 86400000}`);
    }
 
    
