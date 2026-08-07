@@ -145,7 +145,7 @@ function postProcess() {
       for (let key of Object.keys(bins)) {
          bins[key][i] += bins[key][i - 1];
       }
-      bin_labels.push(`${i / (bin_count / 48)}`);
+      bin_labels.push(`${Math.floor((i*per_bin) / 86400000)}`);
    }
 
    
