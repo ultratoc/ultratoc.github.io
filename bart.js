@@ -1,9 +1,8 @@
-//var gaf = 'AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8'
 var gaf = 'AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8'
-var gafs = ['AIzaSyBnAa8ZvWoXucHYNn8J5LjKR5L-viCcnY8', 'AIzaSyBRWJwIp50Ll9VjTD5pAjt_6mlb_9UtZss'];
+var gafs = ['AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8', 'AIzaSyBnAa8ZvWoXucHYNn8J5LjKR5L-viCcnY8', 'AIzaSyBRWJwIp50Ll9VjTD5pAjt_6mlb_9UtZss'];
 var gc = 0;
 var video = 'LYPmesc9xt4';
-var url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
+//var url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
 var video_uploaded = null;
 const MS_FUTURE = 1123200000;
 
@@ -21,7 +20,7 @@ var table = {
 
 function commentCrawl(token) {
    const xhr = new XMLHttpRequest();
-   xhr.open("GET", url + (token == null ? "" : "&pageToken=" + token));
+   xhr.open("GET", "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100" + (token == null ? "" : "&pageToken=" + token));
    xhr.send();
    xhr.responseType = "json";
    xhr.onload = () => {
@@ -35,9 +34,13 @@ function commentCrawl(token) {
          }
       } else {
          console.log(`Sad Error: ${xhr.status}`);
-         gaf = gafs[gc];
-         gc++;
-         commentCrawl(token);
+         console.log(xhr.response);
+         if (gc < gafs.length - 1) {
+            gc++;
+            gaf = gafs[gc];
+            console.log("NGAF2 " + gaf);
+            commentCrawl(token);
+         }
       }
    };
 }
@@ -206,9 +209,14 @@ function getName() {
          console.log("goop")
       } else {
          console.log(`Sad Error: ${xhr.status} ${xhr.response}`);
-         gaf = gafs[gc];
-         gc++;
-         getName();
+         if (gc < gafs.length - 1) {
+            
+            gc++;
+            gaf = gafs[gc];
+            console.log("NGAF " + gaf);
+            getName();
+            
+         }
       }
    };
 }
