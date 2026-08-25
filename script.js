@@ -2,7 +2,7 @@
 var gaf = 'AIzaSyDr3YaJjFL8TXoKid6EhT6OuXICrDxVlk8'
 var gafs = ['AIzaSyBnAa8ZvWoXucHYNn8J5LjKR5L-viCcnY8', 'AIzaSyBRWJwIp50Ll9VjTD5pAjt_6mlb_9UtZss'];
 var gc = 0;
-var video = 'f3tGKZoBcSY';
+var video = 'c5C1xfKD69o';
 var url = "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&key=" + gaf + "&videoId=" + video + "&maxResults=100"
 var video_uploaded = null;
 const MS_48_HOURS = 172800000;
@@ -13,12 +13,12 @@ var nameEL = document.getElementById("name")
 var tagged_votes = [];
 var comments = []
 var table = {
-   "A": "Dresser",
-   "B": "Cinderblock",
-   "C": "Birdhouse",
-   "D": "Lamp",
-   "E": "Alarm Clock",
-   "F": "Sunnyside"
+   "A": "Robot",
+   "B": "Apple Core",
+   "C": "Heater",
+   "D": "Stump",
+   "E": "Lizard Tail",
+   "F": "Stairy Lairy"
 }
 
 function commentCrawl(token) {
